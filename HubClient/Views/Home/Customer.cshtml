@@ -1,0 +1,108 @@
+﻿@{
+    ViewBag.Title = "Автомобиль клиента";
+}
+<body onload="initializeCustomersAutoCharts()">
+    <div class="panel">
+        <div class="panel-heading label-success" style="color:white; ">
+            <h2>@ViewBag.Title</h2>
+            <hr />
+            <h3>@ViewBag.Message</h3>
+            <blockquote>
+                <p>Модуль автомобиля клиента выполняет такие действия:</p>
+                <ul>
+                    <li>Узнает себя находящимся на заправочной станции</li>
+                    <li>Авторизуется на заправочной станции</li>
+                    <li>Делает запрос на заправку нужного количества электроэнергии</li>
+                    <li>Проверяет сертификаты поставщика электроэнергии и оператора заправки</li>
+                    <li>Подтверждает заключение договора</li>
+                    <li>Управляет процессом получения электроэнергии</li>
+                    <li>Подтверждает факт исполнения договора</li>
+                </ul>
+            </blockquote>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <h4><span class="label label-success">Управление зарядкой:</span></h4>
+                <br />
+                <div class="col-lg-2">
+                    Состояние батареи:
+                </div>                
+                <div class="progress">
+                    <div class="progress-bar progress-bar-warning progress-bar-striped active" style="width: 27.5%">
+                        <span>27.5% заряжено</span>
+                    </div>
+                    <div class="progress-bar progress-bar-info progress-bar-striped active" style="width: 72.5%">
+                        <span>72.5% свободно</span>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-lg-2">
+                    Выбор мощности:
+                </div>
+                <div class="col-lg-8">
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon">Мощность</span>
+                        <br /><input type="hidden" class="form-control single-slider" value="46.0" />
+                        <span class="input-group-addon">кВт*ч</span>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <div class="row text-right">
+                <div class="col-lg-8"></div>
+                <div class="col-lg-4">
+                    <div class="input-group input-group-lg">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-warning btn-group-lg" aria-label="Left Align">
+                                <span class="glyphicon glyphicon glyphicon-play-circle" aria-hidden="true"></span>&emsp;&emsp;Старт&emsp;
+                            </button>
+                        </div>
+                        <span class="input-group-addon">$</span>
+                        <input type="text" class="form-control">
+                        <span class="input-group-addon">.00</span>
+                    </div>
+                </div>
+            </div>
+            <br />
+
+            <div class="row">
+                <h4><span class="label label-success">Мониторинг процесса зарядки:</span></h4>
+                <nav class="navbar text-center">
+                    <div class="col-lg-1"></div>
+                    <div class="checkbox-inline col-lg-3">
+                        <p>Ток, <em>А</em></p>
+                        <input type="text" class="dial" value="120" data-min="0" data-max="400" data-step="1" data-fgColor="#FF6666" data-width="100" data-height="100" data-angleOffset="-125" data-angleArc="250" data-rotation="clockwise" />
+                    </div>
+                    <div class="checkbox-inline col-lg-3">
+                        <p>Напряжение, <em>В</em></p>
+                        <input type="text" class="dial" value="24" data-min="0" data-max="50" data-step=".1" data-fgColor="#6666FF" data-width="100" data-height="100" data-angleOffset="-125" data-angleArc="250" data-rotation="clockwise" />
+                    </div>
+                    <div class="checkbox-inline col-lg-3">
+                        <p>Мощность, <em>кВт*ч</em></p>
+                        <input type="text" class="dial" value="2.88" data-min="0" data-max="20" data-step=".01" data-fgColor="#FF9933" data-width="100" data-height="100" data-angleOffset="-125" data-angleArc="250" data-rotation="clockwise" />
+                    </div>
+                </nav>
+                <div id="chargingLine">
+                    <canvas id="chargingLineCanvas" height="80"></canvas>
+                </div>
+            </div>
+            <div class="row">
+                <h4><span class="label label-success">Консоль событий зарядки:</span></h4>
+                <dl class="dl-horizontal label-info" style="color:white; ">
+                    <dt>источник</dt>
+                    <dd>сообщение</dd>
+                </dl>
+                <dl id="customersAutoStream" class="dl-horizontal" style="max-height: 200px; overflow-y:scroll;">
+                    <dt>Энергорынок</dt><dd></dd>
+                    <dt>Автозаправка</dt><dd></dd>
+                    <dt>Удостоверение</dt><dd></dd>
+                    <dt>Смарт-Контракты</dt><dd></dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</body>
+

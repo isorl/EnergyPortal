@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="Content/bootstrap.min.css" rel="stylesheet">         
+    <title>@ViewBag.Title – "Smart-Contract monitor"</title>
+
+<!-- Включение стилей страницы -->
+    @Styles.Render("~/Content/bootstrap.min.css")
+    @Styles.Render("~/Content/bootstrap-theme.min.css")
+    @Styles.Render("~/Content/bootstrap-toggle.min.css")
+    @Styles.Render("~/Content/jquery.range.css")
+
+    <!-- Подключение системных скриптов -->
+    @Scripts.Render("~/Scripts/jquery-3.2.1.min.js")
+    @Scripts.Render("~/Scripts/jquery.knob.min.js")
+    @Scripts.Render("~/Scripts/bootstrap.min.js")
+    @Scripts.Render("~/Scripts/bootstrap-toggle.min.js")
+    @Scripts.Render("~/Scripts/chart.min.js")
+    @Scripts.Render("~/Scripts/jquery.range.js")
+    @Scripts.Render("~/Scripts/jquery.signalR-2.2.2.min.js")
+</head>
+<body>
+    <div class="container">
+        <div class="header clearfix">
+
+            <!-- Навигационная панель -->
+                    <nav class="navbar navbar-default navbar-fixed-top">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-lg-2"></div>
+                                <div class="col-lg-8">
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                            <span class="sr-only">Страницы</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                        <a class="navbar-brand" href="https://www.vizatech.com">
+                                            <img alt="Viz-a-technologies" src="../img/vizatech.png" width="60">
+                                        </a>
+                                        @Html.ActionLink("Viz-a-energy", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                                    </div>
+                                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                        <ul class="nav navbar-nav">
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Навигация <span class="caret"></span></a>
+                                                <ul class="dropdown-menu">
+                                                    <li>@Html.ActionLink("Страница клиента", "Index", "Home")</li>
+                                                    <li>@Html.ActionLink("Автомобиль клиента", "Customer", "Home")</li>
+                                                    <li><a href="http://vizatechfrontend009.azurewebsites.net">Профиль клиента</a></li>
+                                                    <li role="separator" class="divider"></li>
+                                                    <li>@Html.ActionLink("Заправочная станция", "Supplier", "Home")</li>
+                                                    <li>@Html.ActionLink("Энергорынок", "Market", "Home")</li>
+                                                    <li>@Html.ActionLink("Удостоверяющий центр", "Certification", "Home")</li>
+                                                    <li>@Html.ActionLink("Центр смарт-контрактов", "Contracts", "Home")</li>
+                                                    <li role="separator" class="divider"></li>
+                                                    <li>@Html.ActionLink("Панель разработчика", "DevBoard", "Home")</li>
+                                                    <li>@Html.ActionLink("Контакты", "Contact", "Home")</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <form class="navbar-form navbar-left">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="найти...">
+                                            </div>
+                                            <button type="submit" class="btn btn-default">Найти</button>
+                                        </form>
+                                        <ul class="nav navbar-nav navbar-right">
+                                            <li class="active"><a href="#">Портал Azure<span class="sr-only"></span></a></li>
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Технологии<span class="caret"></span></a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="https://jquery.com/">jOuery</a></li>
+                                                    <li><a href="http://getbootstrap.com/">Bootstrup</a></li>
+                                                    <li><a href="https://www.asp.net/signalr">SignalR</a></li>
+                                                    <li><a href="http://www.chartjs.org">ChartJS</a></li>
+                                                    <li><a href="http://www.bootstraptoggle.com/">Bootstrap-toggle</a></li>
+                                                    <li><a href="https://www.npmjs.com/package/jquery-knob">jQuery-knob</a></li>
+                                                    <li><a href="http://nitinhayaran.github.io/jRange/demo">jRange</a></li>
+                                                    <li><a href="https://nnattawat.github.io/flip/">jFlip</a></li>
+                                                    <li role="separator" class="divider"></li>
+                                                    <li><a href="https://azure.microsoft.com">Microsoft Azure</a></li>
+                                                    <li role="separator" class="divider"></li>
+                                                    <li><a href="#">GitHub</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2"></div>
+                            </div>
+                        </div>
+                    </nav>
+
+            <!-- Тело страницы -->
+                <div class="container body-content">
+                    <br />
+                    <br />
+                    <br />
+                    @RenderBody()
+                    <br />
+                </div>
+
+            <!-- Футер страницы -->
+                <div class="container panel-footer">
+                    <footer>
+                        <p>&copy; @DateTime.Now.Year / Nazar Syngaivskyi / Viz-a-Energy Co.</p>
+                    </footer>
+                </div>
+
+        </div>
+    </div>
+
+    <!-- Подключение SignalR хаба -->
+    @Scripts.Render("http://energyhubplus.azurewebsites.net/signalr/hubs")
+    @Scripts.Render("~/Scripts/CustomScripts/connectionToHub.js")
+
+    <!-- Подключение кастомных скриптов визуализации -->
+    @Scripts.Render("~/Scripts/CustomScripts/initial.js")
+    @Scripts.Render("~/Scripts/CustomScripts/tableChart.js")
+    @Scripts.Render("~/Scripts/CustomScripts/lineChart.js")
+    @Scripts.Render("~/Scripts/CustomScripts/barChart.js")
+    @Scripts.Render("~/Scripts/CustomScripts/pieChart.js")
+    @Scripts.Render("~/Scripts/CustomScripts/radarChart.js")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

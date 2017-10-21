@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Смарт-Контракты";
+}
+<body onload="initializeContractsCharts()">
+    <div class="panel">
+        <div class="panel-heading label-info" style="color:white; ">
+            <h2>@ViewBag.Title</h2>
+            <hr />
+            <h3>@ViewBag.Message</h3>
+            <blockquote>
+                <p>Он подтверждает достоверность электронных сертификатов, которыми участники смарт-контракта подписывают договор, а также ставит метку времени события подписи</p>
+            </blockquote>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                    <h4><span class="label label-success">Консоль обращений в удостоверяющий центр:</span></h4>
+                    <dl class="dl-horizontal label-info" style="color:white; ">
+                        <dt>источник</dt>
+                        <dd>сообщение</dd>
+                    </dl>
+                    <dl id="contractsStream" class="dl-horizontal" style="max-height: 200px; overflow-y:scroll;">
+                        <dt>Смарт-Контракты</dt>
+                        <dd></dd>
+                    </dl>
+            </div>
+        </div>
+    </div>
+</body>

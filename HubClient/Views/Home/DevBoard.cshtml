@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "Панель разработчика";
+}
+<body onload="initializeDevBoardCharts()">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2>@ViewBag.Title</h2>
+            <hr />
+            <h3>@ViewBag.Message</h3>
+            <blockquote>
+                <p id="testmessage1">info is waited... </p>
+                <footer class="text-success">
+                    <cite id="dateTime">info is waited...</cite>
+                    <p id="testmessage2">info is waited... </p>
+                </footer>
+            </blockquote>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <h4><span class="label label-success">Включение тестового режима иммитации поведения объекта:</span></h4>
+                <nav class="navbar text-center">
+                    <div class="checkbox-inline col-lg-2">
+                        <p>Авто клиента</p>
+                        <p>&emsp;&emsp;<input type="checkbox" checked data-toggle="toggle" data-off="Вкл" data-on="Выкл" data-offstyle="success" data-onstyle="default" data-size="small"></p>
+                    </div>
+                    <div class="checkbox-inline col-lg-2">
+                        <p>Станция заправки</p>
+                        <p>&emsp;&emsp;<input type="checkbox" checked data-toggle="toggle" data-off="Вкл" data-on="Выкл" data-offstyle="success" data-onstyle="default" data-size="small"></p>
+                    </div>
+                    <div class="checkbox-inline col-lg-2">
+                        <p>Энергокомпании</p>
+                        <p>&emsp;&emsp;<input type="checkbox" checked data-toggle="toggle" data-off="Вкл" data-on="Выкл" data-offstyle="success" data-onstyle="default" data-size="small"></p>
+                    </div>
+                    <div class="checkbox-inline col-lg-2">
+                        <p>Удостоверение</p>
+                        <p>&emsp;&emsp;<input type="checkbox" checked data-toggle="toggle" data-off="Вкл" data-on="Выкл" data-offstyle="success" data-onstyle="default" data-size="small"></p>
+                    </div>
+                    <div class="checkbox-inline col-lg-2">
+                        <p>Смарт-Контракты</p>
+                        <p>&emsp;&emsp;<input type="checkbox" checked data-toggle="toggle" data-off="Вкл" data-on="Выкл" data-offstyle="success" data-onstyle="default" data-size="small"></p>
+                    </div>
+                </nav>
+            </div>
+            <div class="row">
+                <h4><span class="label label-success">Консоль всех событий:</span></h4>
+                <dl class="dl-horizontal label-info" style="color:white; ">
+                    <dt>источник</dt>
+                    <dd>сообщение</dd>
+                </dl>
+                <dl id="devBoardStream" class="dl-horizontal" style="max-height: 200px; overflow-y:scroll;">
+                    <dt>Автомобиль</dt>
+                    <dd></dd>
+                    <dt>Автозаправка</dt>
+                    <dd></dd>
+                    <dt>Энергорынок</dt>
+                    <dd></dd>
+                    <dt>Удостоверение</dt>
+                    <dd></dd>
+                    <dt>Смарт-Контракты</dt>
+                    <dd></dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</body>

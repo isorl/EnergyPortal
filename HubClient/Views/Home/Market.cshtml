@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "Энергорынок";
+}
+<body  onload="initializeEnergyCharts()">
+    <div class="panel">
+        <div class="panel-heading label-warning" style="color:white; ">
+            <h2>@ViewBag.Title</h2>
+            <hr />
+            <h3>@ViewBag.Message</h3>
+            <blockquote>
+                <p>Давайте представим, что на рынке электроэнергии существует 3 небольшие частные энергогенерирующие компании:</p>
+                <ul>
+                    <li>Энергетическая компания <strong>"Ветер"</strong></li>
+                    <li>Энергетическая компания <strong>"Солнце"</strong></li>
+                    <li>Энергетическая компания <strong>"Волна"</strong></li>
+                </ul>
+                <p>Компании поставляют электроэнергию по изменяющимся во времени ценам <strong>за 1 кВт*ч</strong>, в зависимости от своих хозяйственных обстоятельств и стратегий.</p>
+            </blockquote>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <h4><span class="label label-success">Ручная настройка стоимости поставки электроэнергии <strong>($ за 1 кВт*ч)</strong>:</span></h4>
+                <nav class="navbar text-center">
+                    <div class="col-lg-1"></div>
+                    <div class="checkbox-inline col-lg-3">
+                        <p>ЭК "Ветер"</p>
+                        <input id="energy01" type="text" class="dial" value="39.5" data-min="10" data-max="90" data-step=".1" data-fgColor="#99CCFF" data-linecap=round data-width="100" data-height="100" data-angleOffset="-125" data-angleArc="250" data-rotation="clockwise" />
+                    </div>
+                    <div class="checkbox-inline col-lg-3">
+                        <p>ЭК "Солнце"</p>
+                        <input id="energy02" type="text" class="dial" value="44.4" data-min="10" data-max="90" data-step=".1" data-fgColor="#FF6699" data-linecap=round data-width="100" data-height="100" data-angleOffset="-125" data-angleArc="250" data-rotation="clockwise" />
+                    </div>
+                    <div class="checkbox-inline col-lg-3">
+                        <p>ЭК "Волна"</p>
+                        <input id="energy03" type="text" class="dial" value="51.6" data-min="10" data-max="90" data-step=".1" data-fgColor="#CC66FF" data-linecap=round data-width="100" data-height="100" data-angleOffset="-125" data-angleArc="250" data-rotation="clockwise" />
+                    </div>
+                </nav>
+            </div>
+            <div class="row">
+                <h4><span class="label label-success">Динамика предложений по стоимости электроэнергии <strong>($ за 1 кВт*ч)</strong> на энергорынке:</span></h4>
+                <div class="col-lg-6">
+                    <div id="energyLine">
+                        <canvas id="energyLineCanvas" height="180"></canvas>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div id="energyBar">
+                        <canvas id="energyBarCanvas" height="180"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div id="energyStockTable" class="row">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Device ID</th>
+                            <th>Device Name</th>
+                            <th>Device Sensor Type</th>
+                            <th>Unit</th>
+                            <th>UpDown</th>
+                            <th>Readout Stamp</th>
+                            <th>DataTime Stamp</th>
+                            <th>Deviation %</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="loading"><td colspan="8">data loading...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                    <h4><span class="label label-success">Консоль контрактов на энергорынке:</span></h4>
+                    <dl class="dl-horizontal label-info" style="color:white; ">
+                        <dt>источник</dt>
+                        <dd>сообщение</dd>
+                    </dl>
+                    <dl id="marketStream" class="dl-horizontal" style="max-height: 200px; overflow-y:scroll;">
+                        <dt>Автомобиль</dt><dd></dd>
+                        <dt>Автозаправка</dt><dd></dd>
+                        <dt>Удостоверение</dt><dd></dd>
+                        <dt>Смарт-Контракты</dt><dd></dd>
+                    </dl>
+            </div>
+        </div>
+    </div> 
+</body>

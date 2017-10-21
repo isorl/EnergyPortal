@@ -1,0 +1,201 @@
+﻿@{
+    ViewBag.Title = "Проект Viz-a-Energy";
+}
+
+            <div class="page-header">
+                <h1 id="HomePageHead">@ViewBag.Title <br /> 
+                    <small>@ViewBag.Message</small>
+                </h1>
+            </div>
+
+            <!--Блок представления данных в Аккордионе-->
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+                <!-- 1-я ступенька Аккордеона -->
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Панель управления устройством
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body">
+                            Это будет основной раздел визуализации и управления
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2-я ступенька Аккордеона -->
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Настройка параметров визуализации данных
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+                        <div class="panel-body">
+                            <!-- начало Карусели для представлений -->
+                            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
+                                <!-- Indicators -->
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                                    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                                    <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+                                    <li data-target="#carousel-example-generic" data-slide-to="5"></li>
+                                    <li data-target="#carousel-example-generic" data-slide-to="6"></li>
+                                </ol>
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner" role="listbox">
+                                    <div class="item active">
+                                        <div class="carousel-caption">
+                                            <h2>Line representation</h2>
+                                        </div>
+                                        <!-- линейный Graphic -->
+                                        <div id="stockLine">
+                                            <canvas id="lineChart" height="160"></canvas>
+                                        </div>
+                                        <div>
+                                            <canvas id="underLineChart" height="40"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="carousel-caption">
+                                            <h2>Bar representation</h2>
+                                        </div>
+                                        <!-- Гистограмма -->
+                                        <div id="stockBar">
+                                            <canvas id="barChart" height="160" width="400"></canvas>
+                                        </div>
+                                        <div>
+                                            <canvas id="underBarChart" height="40" width="400"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="carousel-caption">
+                                            <h2>Horizontal Bar representation</h2>
+                                        </div>
+                                        <!-- Гистограмма -->
+                                        <div id="stockHorizontalBar">
+                                            <canvas id="horizontalBarChart" height="160" width="400"></canvas>
+                                        </div>
+                                        <div>
+                                            <canvas id="underHorizontalBarChart" height="40" width="400"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="carousel-caption">
+                                            <h2>Radar representation</h2>
+                                        </div>
+                                        <!-- Радар -->
+                                        <div id="stockRadar">
+                                            <canvas id="radarChart" height="160" width="400"></canvas>
+                                        </div>
+                                        <div>
+                                            <canvas id="underRadarChart" height="40" width="400"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="carousel-caption">
+                                            <h2>Pie representation</h2>
+                                        </div>
+                                        <!-- Круговая диаграмма - монолитная -->
+                                        <div id="stockPie">
+                                            <canvas id="pieChart" height="160" width="400"></canvas>
+                                        </div>
+                                        <div>
+                                            <canvas id="underPieChart" height="40" width="400"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="carousel-caption">
+                                            <h2>Pie representation</h2>
+                                        </div>
+                                        <!-- Круговая диаграмма - бублик -->
+                                        <div id="stockDoughnut">
+                                            <canvas id="doughnutChart" height="160" width="400"></canvas>
+                                        </div>
+                                        <div>
+                                            <canvas id="underDoughnutChart" height="40" width="400"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Controls -->
+                                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div> <!-- конец Карусели для представлений -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3-я ступенька Аккордеона -->
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Настройка параметров управления устройством
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                        <div class="panel-body">
+                            Здесь будет  настройка полей для вывода данных и алярмов
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4-я ступенька Аккордеона -->
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingFour">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                                Подключение устройства
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                        <div class="panel-body">
+                            <!-- представление Таблицы -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Табличное представление</div>
+                                <div class="panel-body"><p>для 8 источников данных</p></div>
+                                <div id="stockTable">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Owner ID</th>
+                                                <th>Device ID</th>
+                                                <th>Device Name</th>
+                                                <th>Device Class</th>
+                                                <th>Device Data Class</th>
+                                                <th>Device Sensor Type</th>
+                                                <th>Unit</th>
+                                                <th>Sign</th>
+                                                <th>Readout Stamp</th>
+                                                <th>DataTime Stamp</th>
+                                                <th>Average Value</th>
+                                                <th>Daviation Abs</th>
+                                                <th>Deviation %</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="loading"><td colspan="13">loading...</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>  <!-- конец представления Таблицы -->
+                        </div>
+                    </div>
+                </div>
+            </div>
